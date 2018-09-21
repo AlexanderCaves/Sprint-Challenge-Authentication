@@ -40,3 +40,4 @@ The migrations and a database with empty users is already included, your job is 
 
 - Add a React client that connects to your API and has pages for `Sign Up`, `Sign In` and showing a list of `Jokes`.
 - Once you have the functionality down, you'll be able to style it up a bit and play around with the jokes etc.
+start
