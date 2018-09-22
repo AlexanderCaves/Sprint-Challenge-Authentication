@@ -17,7 +17,7 @@ function generateToken(user) {
       expiresIn: '1h',
       jwtid: '12345',
   };
-  return jwt.sign(payload, secret, options);
+  return jwt.sign(payload, jwtKey, options);
 }
 
 function authenticate(req, res, next) {

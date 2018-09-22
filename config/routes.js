@@ -1,5 +1,6 @@
 const axios = require('axios');
 const bcrypt = require('bcryptjs');
+const db = require('../database/dbConfig');
 
 const { generateToken } = require('./middlewares');
 const { authenticate } = require('./middlewares');
@@ -12,7 +13,6 @@ module.exports = server => {
 
 function register(req, res) {
   // implement user registration
-  server.post('/api/register', (req, res) => {
     const creds = req.body;
     const hash = bcrypt.hashSync(creds.password, 10);
     creds.password = hash;
@@ -38,12 +38,10 @@ function register(req, res) {
             console.log('/api/register POST error:', err);
             res.status(500).send('Please try again later.');
         });        
-  });
 }
 
 function login(req, res) {
   // implement user login
-  server.post('/api/login', (req, res) => {
     const creds = req.body;
 
     db('users')
@@ -61,7 +59,6 @@ function login(req, res) {
             console.log('/api/login POST error:', err);
             res.status(500).send('Please try again later.');
         });
-  });
 }
 
 function getJokes(req, res) {
